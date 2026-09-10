@@ -1,58 +1,38 @@
 /* 
- * styles.css - Modern Student Portfolio
- * Clean, accessible design with strong contrast and generous spacing
+ * styles.css - All styling for the Student Portfolio
  * This file controls the look and feel of the website
  * It works with index.html (structure) and script.js (behavior)
  */
 
-/* ===== COLOR PALETTE IMPROVEMENT =====
-   Changed from complex forest palette to simple, modern colors:
-   - Primary: Deep navy (better contrast, professional)
-   - Secondary: Warm white/light gray (clean background)
-   - Accent: Bright blue (energetic, student-friendly)
-   - Benefits: Easier to read, WCAG AAA contrast, modern feel
-*/
-
+/* ===== CSS Custom Properties (Variables) ===== */
+/* These store colors and can be changed based on theme */
 :root {
-    /* Light theme - Clean and modern */
-    --bg-primary: #ffffff; /* Bright white for readability */
-    --bg-secondary: #f8f9fa; /* Subtle light gray for sections */
-    --text-primary: #1a202c; /* Deep navy - strong contrast */
-    --text-secondary: #4a5568; /* Medium gray for secondary text */
-    --accent-color: #2563eb; /* Bright blue - energetic and modern */
-    --accent-hover: #1d4ed8; /* Slightly darker blue */
-    --accent-light: #dbeafe; /* Light blue background */
-    --border-color: #e2e8f0; /* Subtle borders */
-    --highlight-color: #3b82f6; /* Medium blue for highlights */
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-    
-    /* Additional accents */
-    --success-color: #059669; /* Green for positive elements */
-    --warning-color: #d97706; /* Amber for alerts */
+    /* Light theme colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --accent-color: #667eea;
+    --accent-hover: #5568d3;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Dark theme - Accessible and comfortable */
+/* Dark theme - activated by script.js when user toggles theme */
 body.dark-mode {
-    --bg-primary: #0f172a; /* Very dark blue-gray */
-    --bg-secondary: #1e293b; /* Slightly lighter dark background */
-    --text-primary: #f1f5f9; /* Bright white text */
-    --text-secondary: #cbd5e1; /* Lighter gray for secondary */
-    --accent-color: #3b82f6; /* Bright blue (good contrast on dark) */
-    --accent-hover: #60a5fa; /* Lighter blue for hover */
-    --accent-light: #1e3a8a; /* Dark blue background */
-    --border-color: #334155; /* Medium gray borders */
-    --highlight-color: #60a5fa; /* Bright blue highlight */
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #f0f0f0;
+    --text-secondary: #b0b0b0;
+    --accent-color: #8b9dff;
+    --accent-hover: #7a8ce6;
+    --border-color: #404040;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-/* ===== GLOBAL STYLES IMPROVEMENT =====
-   Changed to sans-serif for modern look, increased line-height for reading
-*/
-
+/* ===== Global Styles ===== */
 * {
     margin: 0;
     padding: 0;
@@ -60,308 +40,228 @@ body.dark-mode {
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
 
 body {
-    /* Changed font from Georgia serif to modern sans-serif */
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6; /* Good readability without being too loose */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--bg-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
-    /* Removed extra letter-spacing for cleaner modern look */
 }
 
-/* ===== ACCESSIBILITY - KEYBOARD FOCUS =====
-   Added global focus styles so all interactive elements have visible keyboard focus
-*/
-
-button:focus-visible,
-a:focus-visible,
-input:focus-visible {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 2px;
-}
-
-/* ===== SKIP LINK - BETTER VISIBILITY =====
-   Made more prominent with better contrast and padding
-*/
-
+/* ===== Accessibility ===== */
 .skip-link {
     position: absolute;
     top: -40px;
     left: 0;
     background: var(--accent-color);
     color: white;
-    padding: 0.75rem 1rem;
+    padding: 8px;
     text-decoration: none;
     z-index: 100;
-    font-weight: 600;
-    border-radius: 0 0 4px 0;
 }
 
 .skip-link:focus {
-    top: 0;
+    top: 0; /* Makes skip link visible when focused */
 }
 
-/* ===== HEADER & NAVIGATION IMPROVEMENT =====
-   Cleaner design with better spacing and contrast
-*/
-
+/* ===== Header & Navigation ===== */
 header {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary);
     box-shadow: var(--shadow);
     position: sticky;
     top: 0;
     z-index: 50;
-    border-bottom: 4px solid var(--accent-color); /* Thicker, more visible border */
 }
 
 .navbar {
-    padding: 1rem 0; /* Reduced from 1.2rem for cleaner look */
+    padding: 1rem 0;
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem; /* Increased from 1rem for generous side spacing */
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    font-size: 1.5rem; /* Reduced from 1.8rem */
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: bold;
     color: var(--accent-color);
-    letter-spacing: 0; /* Removed letter-spacing for modern look */
-    font-family: inherit; /* Use system fonts, not serif */
 }
 
-/* ===== THEME TOGGLE BUTTON - CLEAR FOCUS STATE =====
-   Improved button with better focus visibility and hover states
-*/
-
+/* Theme Toggle Button */
 .theme-btn {
-    background: var(--accent-light); /* Filled background instead of outline */
+    background: none;
     border: 2px solid var(--accent-color);
     color: var(--accent-color);
     padding: 0.5rem 0.75rem;
-    border-radius: 6px; /* Slightly rounder corners */
+    border-radius: 50%;
     cursor: pointer;
-    font-size: 1.1rem; /* Slightly smaller */
-    transition: all 0.2s ease; /* Faster transitions */
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 44px;
     height: 44px;
-    min-width: 44px; /* Ensure touch-friendly size */
 }
 
 .theme-btn:hover {
     background-color: var(--accent-color);
     color: white;
-    transform: scale(1.1); /* Subtle scale on hover */
+    transform: scale(1.1);
 }
 
-/* FOCUS-VISIBLE ensures keyboard focus is visible */
-.theme-btn:focus-visible {
-    outline: 3px solid var(--accent-color);
+.theme-btn:focus {
+    outline: 2px solid var(--accent-color);
     outline-offset: 2px;
 }
 
-/* ===== CONTAINER =====
-   Consistent max-width with generous padding
-*/
-
+/* ===== Container ===== */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem; /* Generous side padding */
+    padding: 0 1rem;
 }
 
-/* ===== HERO SECTION IMPROVEMENT =====
-   Simplified gradient, better spacing, removed mountain silhouette for modern look
-*/
-
+/* ===== Hero Section ===== */
 .hero {
-    /* Changed to simpler, more modern gradient */
-    background: linear-gradient(135deg, var(--accent-color) 0%, #1e40af 100%);
+    background: linear-gradient(135deg, var(--accent-color) 0%, #764ba2 100%);
     color: white;
-    padding: 120px 2rem; /* More generous padding */
+    padding: 100px 1rem;
     text-align: center;
-    position: relative;
-    overflow: hidden;
 }
 
 .hero-content {
-    max-width: 800px; /* Slightly wider */
+    max-width: 600px;
     margin: 0 auto;
-    position: relative;
-    z-index: 1;
 }
 
-.hero h2 {
-    font-size: 3rem; /* Reduced from 3.5rem for better proportions */
-    margin-bottom: 1.5rem; /* Increased from 1rem for generous spacing */
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
     animation: fadeInDown 0.8s ease;
-    font-weight: 700;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem; /* Slightly smaller */
-    margin-bottom: 2.5rem;
-    opacity: 0.98; /* Slightly more opaque */
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
     animation: fadeInUp 0.8s ease 0.2s both;
-    line-height: 1.7; /* Better line-height for readability */
-    font-style: normal; /* Removed italic for modern look */
 }
 
-/* ===== CTA BUTTON IMPROVEMENT =====
-   Larger, more modern button with better padding and focus states
-*/
-
+/* ===== Call to Action Button ===== */
 .cta-button {
     display: inline-block;
     background-color: white;
     color: var(--accent-color);
-    padding: 1rem 2.5rem; /* Generous padding */
-    border-radius: 6px; /* Modern rounded corners */
+    padding: 1rem 2rem;
+    border-radius: 50px;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    border: none; /* Removed border for cleaner look */
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid white;
     cursor: pointer;
-    font-size: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
 .cta-button:hover {
-    background-color: #f3f4f6; /* Slightly gray on hover */
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    color: white;
 }
 
-.cta-button:focus-visible {
-    outline: 3px solid white;
+.cta-button:focus {
+    outline: 2px solid white;
     outline-offset: 2px;
 }
 
-/* ===== SECTIONS - GENEROUS SPACING =====
-   Increased padding for breathing room and better visual hierarchy
-*/
-
+/* ===== Sections (About, Skills, Projects) ===== */
 section {
-    padding: 5rem 2rem; /* Increased from varying amounts to consistent generous padding */
-    position: relative;
+    padding: 80px 1rem;
 }
 
 section h2 {
     font-size: 2.5rem;
-    margin-bottom: 3rem; /* Increased from 1rem for more space */
+    margin-bottom: 2rem;
     color: var(--accent-color);
     text-align: center;
-    font-weight: 700;
-    position: relative;
-    padding-bottom: 1rem;
 }
 
-/* Removed decorative underline for cleaner modern look */
-
-/* ===== ABOUT SECTION =====
-   Cleaner styling, removed background pattern
-*/
-
+/* About Section */
 .about {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary);
 }
 
 .about p {
     font-size: 1.1rem;
-    max-width: 800px; /* Slightly wider for better readability */
+    max-width: 700px;
     margin: 0 auto;
     text-align: center;
     color: var(--text-secondary);
-    line-height: 1.8; /* Better line-height for body text */
-    font-style: normal; /* Removed italic */
+    line-height: 1.8;
 }
 
-/* ===== SKILLS SECTION =====
-   Better spacing, modern card design
-*/
-
-.skills {
-    background-color: var(--bg-secondary);
-}
-
+/* ===== Skills Section ===== */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem; /* Consistent gap */
-    margin-top: 2rem;
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
-/* ===== SKILL CARD IMPROVEMENT =====
-   Removed decorative top border, cleaner design with better hover
-*/
-
 .skill-card {
-    background-color: var(--bg-primary);
-    padding: 2rem; /* Generous padding */
-    border-radius: 8px; /* Modern rounded corners */
+    background-color: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 10px;
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
-    border: 2px solid var(--border-color); /* Subtle border instead of left accent */
-    position: relative;
+    border: 2px solid transparent;
 }
 
 .skill-card:hover {
-    transform: translateY(-4px); /* Subtle lift */
+    transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
     border-color: var(--accent-color);
 }
 
-/* Added keyboard focus styling */
+/* Added focus-visible for keyboard navigation */
 .skill-card:focus-visible {
-    border-color: var(--accent-color);
     outline: 3px solid var(--accent-color);
     outline-offset: 2px;
+    border-color: var(--accent-color);
 }
 
 .skill-card h3 {
     color: var(--accent-color);
     margin-bottom: 1rem;
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.3rem;
 }
 
 .skill-card p {
     color: var(--text-secondary);
     line-height: 1.7;
-    font-size: 0.95rem;
 }
 
-/* ===== PROJECTS SECTION =====
-   Modern card layout with better spacing
-*/
-
+/* ===== Projects Section ===== */
 .projects {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary);
 }
 
 .project-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem; /* Consistent gap */
+    gap: 3rem;
     align-items: center;
-    background-color: var(--bg-secondary);
-    padding: 2.5rem; /* Generous padding */
-    border-radius: 8px;
+    background-color: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 10px;
     box-shadow: var(--shadow);
     transition: box-shadow 0.3s ease;
-    border: 1px solid var(--border-color);
 }
 
 .project-card:hover {
@@ -373,70 +273,50 @@ section h2 {
     align-items: center;
     justify-content: center;
     min-height: 300px;
-    background: var(--accent-light); /* Simplified background */
-    border-radius: 8px;
-    padding: 2rem;
 }
 
 .project-image svg {
     width: 100%;
-    max-width: 280px;
+    max-width: 250px;
     color: var(--accent-color);
 }
 
 .project-content h3 {
-    font-size: 1.75rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
     color: var(--accent-color);
-    font-weight: 700;
 }
 
 .project-description {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     line-height: 1.8;
 }
 
-/* ===== PROJECT TAGS - BETTER STYLING =====
-   Cleaner tag design with better contrast
-*/
-
 .project-tags {
     display: flex;
     gap: 0.75rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
 }
 
 .tag {
-    background-color: var(--accent-light);
-    color: var(--accent-color);
-    padding: 0.5rem 1rem;
-    border-radius: 20px; /* Pill shape for modern look */
-    font-size: 0.9rem;
-    font-weight: 600;
-    border: 1px solid var(--accent-color);
-}
-
-.tag:hover {
     background-color: var(--accent-color);
     color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
 }
-
-/* ===== PROJECT LINK - CLEAR FOCUS =====
-   Improved link styling with visible focus
-*/
 
 .project-link {
     display: inline-block;
     color: var(--accent-color);
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.2s ease;
+    font-weight: bold;
+    transition: all 0.3s ease;
     border-bottom: 2px solid var(--accent-color);
     padding-bottom: 0.25rem;
-    font-size: 1rem;
 }
 
 .project-link:hover {
@@ -444,33 +324,25 @@ section h2 {
     border-bottom-color: var(--accent-hover);
 }
 
-.project-link:focus-visible {
-    outline: 3px solid var(--accent-color);
-    outline-offset: 4px;
+.project-link:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
-/* ===== FOOTER - CLEAN AND MODERN =====
-   Simplified design with good contrast
-*/
-
+/* ===== Footer ===== */
 .footer {
-    background-color: var(--text-primary); /* Use primary text color for dark background */
-    color: #f1f5f9; /* Light text */
+    background-color: #0f172a; /* Darker background for better contrast */
+    color: #ffffff; /* Pure white for maximum contrast (15:1 ratio) */
     text-align: center;
-    padding: 3rem 2rem;
-    border-top: 4px solid var(--accent-color);
+    padding: 3rem 1rem;
+    border-top: 1px solid var(--border-color);
 }
 
 .footer p {
-    margin: 0.75rem 0;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    margin: 0.5rem 0;
 }
 
-/* ===== ANIMATIONS =====
-   Keep smooth animations
-*/
-
+/* ===== Animations ===== */
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -493,125 +365,50 @@ section h2 {
     }
 }
 
-/* ===== RESPONSIVE DESIGN - TABLET (768px) =====
-   Maintain readability and spacing on smaller screens
-*/
-
+/* ===== Responsive Design ===== */
 @media (max-width: 768px) {
-    .nav-container {
-        padding: 0 1rem;
-    }
-
-    .container {
-        padding: 0 1rem;
-    }
-
-    .hero {
-        padding: 80px 1rem;
-    }
-
-    .hero h2 {
-        font-size: 2.2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-
-    section {
-        padding: 3rem 1rem;
+    .hero h1 {
+        font-size: 2rem;
     }
 
     section h2 {
         font-size: 2rem;
-        margin-bottom: 2rem;
     }
 
     .project-card {
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 1.5rem;
     }
 
     .skills-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
 
-    .skill-card {
-        padding: 1.5rem;
+    section {
+        padding: 40px 1rem;
     }
 }
 
-/* ===== RESPONSIVE DESIGN - MOBILE (480px) =====
-   Optimal layout and spacing for small screens
-*/
-
 @media (max-width: 480px) {
-    .nav-container {
-        padding: 0 1rem;
-        gap: 1rem;
-    }
-
-    .logo {
-        font-size: 1.3rem;
-    }
-
-    .theme-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-
     .hero {
         padding: 60px 1rem;
     }
 
-    .hero h2 {
-        font-size: 1.75rem;
-        margin-bottom: 1rem;
+    .hero h1 {
+        font-size: 1.5rem;
     }
 
     .hero-subtitle {
         font-size: 1rem;
-        margin-bottom: 1.5rem;
     }
 
     .cta-button {
-        padding: 0.875rem 1.75rem;
+        padding: 0.8rem 1.5rem;
         font-size: 0.95rem;
     }
 
-    section {
-        padding: 2.5rem 1rem;
-    }
-
-    section h2 {
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .project-card {
-        padding: 1.25rem;
-    }
-
-    .project-image {
-        min-height: 200px;
-    }
-
-    .project-content h3 {
-        font-size: 1.4rem;
-    }
-
-    .project-description {
-        font-size: 0.95rem;
-    }
-
-    .about p {
-        font-size: 1rem;
-    }
-
-    .skill-card h3 {
-        font-size: 1.1rem;
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
     }
 }
