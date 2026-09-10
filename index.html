@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar">
             <div class="nav-container">
-                <h1 class="logo">My Portfolio</h1>
+                <div class="logo">My Portfolio</div>
                 <!-- Theme toggle button -->
                 <button 
                     id="themeToggle" 
@@ -35,7 +35,7 @@
         <!-- Hero Section -->
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero-content">
-                <h2 id="hero-title">Welcome to My Portfolio</h2>
+                <h1 id="hero-title">Welcome to My Portfolio</h1>
                 <p class="hero-subtitle">I'm a student learning web development and exploring new technologies.</p>
                 <a href="#about" class="cta-button">Learn More About Me</a>
             </div>
@@ -58,19 +58,19 @@
             <div class="container">
                 <h2 id="skills-title">Skills & Interests</h2>
                 <div class="skills-grid">
-                    <div class="skill-card">
+                    <div class="skill-card" tabindex="0" role="article">
                         <h3>HTML & CSS</h3>
                         <p>Building semantic, accessible web pages with modern styling techniques.</p>
                     </div>
-                    <div class="skill-card">
+                    <div class="skill-card" tabindex="0" role="article">
                         <h3>JavaScript</h3>
                         <p>Creating interactive experiences and adding behavior to web applications.</p>
                     </div>
-                    <div class="skill-card">
+                    <div class="skill-card" tabindex="0" role="article">
                         <h3>Responsive Design</h3>
                         <p>Designing websites that work beautifully on all devices and screen sizes.</p>
                     </div>
-                    <div class="skill-card">
+                    <div class="skill-card" tabindex="0" role="article">
                         <h3>Web Accessibility</h3>
                         <p>Making the web inclusive for everyone by following accessibility best practices.</p>
                     </div>
@@ -84,7 +84,7 @@
                 <h2 id="projects-title">Featured Project</h2>
                 <article class="project-card">
                     <div class="project-image">
-                        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" title="Student portfolio website icon: a browser window with a photo and text">
                             <!-- Simple portfolio icon -->
                             <rect width="200" height="150" fill="currentColor" opacity="0.1"/>
                             <rect x="20" y="30" width="160" height="90" stroke="currentColor" stroke-width="2" fill="none"/>
@@ -104,7 +104,7 @@
                             <span class="tag">CSS3</span>
                             <span class="tag">JavaScript</span>
                         </div>
-                        <a href="#" class="project-link" aria-label="View Student Portfolio Website project">View Project →</a>
+                        <a href="javascript:void(0)" class="project-link" aria-label="View Student Portfolio Website project" onclick="return false;">View Project →</a>
                     </div>
                 </article>
             </div>
@@ -118,6 +118,14 @@
             <p>Built with HTML, CSS, and JavaScript.</p>
         </div>
     </footer>
+
+    <!-- NOTE FOR FUTURE DEVELOPERS:
+         If adding a contact form, remember:
+         - Every <input> must have a <label for="id">
+         - <select> elements need labels too
+         - Use aria-required="true" for required fields
+         - Use aria-describedby for error messages
+    -->
 
     <!-- Link to external JavaScript file -->
     <script src="script.js"></script>
