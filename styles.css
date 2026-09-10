@@ -1,35 +1,49 @@
 /* 
- * styles.css - All styling for the Student Portfolio
+ * styles.css - Pacific Northwest Themed Student Portfolio
+ * Inspired by the natural beauty of the Pacific Northwest
+ * Colors: Deep forest greens, misty grays, evergreen tones, mountain slate blues
  * This file controls the look and feel of the website
  * It works with index.html (structure) and script.js (behavior)
  */
 
 /* ===== CSS Custom Properties (Variables) ===== */
-/* These store colors and can be changed based on theme */
+/* Pacific Northwest inspired color palette */
 :root {
-    /* Light theme colors */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f5f5f5;
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --accent-color: #667eea;
-    --accent-hover: #5568d3;
-    --border-color: #e0e0e0;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+    /* Light theme - Misty morning colors */
+    --bg-primary: #f5f3f0; /* Soft fog/cream */
+    --bg-secondary: #e8e3dd; /* Light mist */
+    --text-primary: #2c3e1f; /* Deep forest green */
+    --text-secondary: #5a6b52; /* Muted sage */
+    --accent-color: #1b4332; /* Deep evergreen */
+    --accent-hover: #0f2818; /* Darker forest */
+    --accent-light: #2d6a4f; /* Medium pine */
+    --border-color: #d0ccc8; /* Misty gray */
+    --highlight-color: #6b9f7f; /* Soft moss */
+    --shadow: 0 4px 12px rgba(27, 67, 50, 0.12);
+    --shadow-lg: 0 12px 32px rgba(27, 67, 50, 0.18);
+    
+    /* Additional PNW colors */
+    --mountain-blue: #4a6fa5; /* Mountain lake */
+    --sky-gray: #a8b8c8; /* Overcast sky */
+    --cedar-brown: #6b5344; /* Cedar bark */
 }
 
-/* Dark theme - activated by script.js when user toggles theme */
+/* Dark theme - Deep forest night */
 body.dark-mode {
-    --bg-primary: #1a1a1a;
-    --bg-secondary: #2d2d2d;
-    --text-primary: #f0f0f0;
-    --text-secondary: #b0b0b0;
-    --accent-color: #8b9dff;
-    --accent-hover: #7a8ce6;
-    --border-color: #404040;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --bg-primary: #1a1f18; /* Deep forest night */
+    --bg-secondary: #2d3728; /* Dark forest */
+    --text-primary: #dfe8d8; /* Misty light */
+    --text-secondary: #a8b8a0; /* Soft sage light */
+    --accent-color: #52b788; /* Bright moss green */
+    --accent-hover: #74c69d; /* Lighter moss */
+    --accent-light: #81c784; /* Soft pine light */
+    --border-color: #404d3a; /* Dark forest border */
+    --highlight-color: #95d5b2; /* Bright highlight */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+    --mountain-blue: #6ca7d9; /* Brighter mountain blue */
+    --sky-gray: #8899aa; /* Lighter overcast */
+    --cedar-brown: #b89968; /* Lighter cedar */
 }
 
 /* ===== Global Styles ===== */
@@ -44,11 +58,12 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
+    font-family: 'Georgia', 'Garamond', serif;
+    line-height: 1.7;
     color: var(--text-primary);
     background-color: var(--bg-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    letter-spacing: 0.3px;
 }
 
 /* ===== Accessibility ===== */
@@ -74,10 +89,11 @@ header {
     position: sticky;
     top: 0;
     z-index: 50;
+    border-bottom: 3px solid var(--accent-color);
 }
 
 .navbar {
-    padding: 1rem 0;
+    padding: 1.2rem 0;
 }
 
 .nav-container {
@@ -90,9 +106,11 @@ header {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: var(--accent-color);
+    letter-spacing: 1px;
+    font-family: 'Georgia', serif;
 }
 
 /* Theme Toggle Button */
@@ -100,26 +118,27 @@ header {
     background: none;
     border: 2px solid var(--accent-color);
     color: var(--accent-color);
-    padding: 0.5rem 0.75rem;
-    border-radius: 50%;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 1.2rem;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
 }
 
 .theme-btn:hover {
     background-color: var(--accent-color);
     color: white;
-    transform: scale(1.1);
+    transform: scale(1.05);
+    box-shadow: var(--shadow);
 }
 
 .theme-btn:focus {
-    outline: 2px solid var(--accent-color);
+    outline: 2px solid var(--accent-light);
     outline-offset: 2px;
 }
 
@@ -132,112 +151,176 @@ header {
 
 /* ===== Hero Section ===== */
 .hero {
-    background: linear-gradient(135deg, var(--accent-color) 0%, #764ba2 100%);
-    color: white;
-    padding: 100px 1rem;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--mountain-blue) 50%, #3d5a4f 100%);
+    background-attachment: fixed;
+    color: #e8e3dd;
+    padding: 140px 1rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Mountain silhouette background effect */
+.hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,80 Q150,40 300,60 T600,40 T900,70 T1200,50 L1200,120 L0,120 Z" fill="%23000000" opacity="0.1"/></svg>') repeat-x;
+    background-size: auto 100%;
 }
 
 .hero-content {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .hero h2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
     animation: fadeInDown 0.8s ease;
+    font-family: 'Georgia', serif;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
     opacity: 0.95;
     animation: fadeInUp 0.8s ease 0.2s both;
+    line-height: 1.8;
+    font-style: italic;
 }
 
 /* ===== Call to Action Button ===== */
 .cta-button {
     display: inline-block;
-    background-color: white;
+    background-color: #e8e3dd;
     color: var(--accent-color);
-    padding: 1rem 2rem;
-    border-radius: 50px;
+    padding: 1.1rem 2.5rem;
+    border-radius: 4px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     transition: all 0.3s ease;
-    border: 2px solid white;
+    border: 2px solid #e8e3dd;
     cursor: pointer;
+    letter-spacing: 0.5px;
+    box-shadow: var(--shadow);
 }
 
 .cta-button:hover {
     background-color: transparent;
-    color: white;
+    color: #e8e3dd;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .cta-button:focus {
-    outline: 2px solid white;
+    outline: 2px solid #e8e3dd;
     outline-offset: 2px;
 }
 
 /* ===== Sections (About, Skills, Projects) ===== */
 section {
-    padding: 80px 1rem;
+    padding: 100px 1rem;
+    position: relative;
 }
 
 section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
     color: var(--accent-color);
     text-align: center;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+/* Decorative underline for section headings */
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--highlight-color), transparent);
 }
 
 /* About Section */
 .about {
     background-color: var(--bg-secondary);
+    background-image: 
+        linear-gradient(45deg, transparent 48%, rgba(27, 67, 50, 0.03) 49%, rgba(27, 67, 50, 0.03) 51%, transparent 52%);
+    background-size: 30px 30px;
 }
 
 .about p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
     color: var(--text-secondary);
-    line-height: 1.8;
+    line-height: 1.9;
+    font-style: italic;
 }
 
 /* ===== Skills Section ===== */
+.skills {
+    background-color: var(--bg-primary);
+}
+
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
     margin-top: 3rem;
 }
 
 .skill-card {
     background-color: var(--bg-secondary);
-    padding: 2rem;
-    border-radius: 10px;
+    padding: 2.5rem;
+    border-radius: 4px;
     box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    border-left: 4px solid var(--accent-color);
+    position: relative;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--highlight-color), transparent);
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
-    border-color: var(--accent-color);
+    border-left-color: var(--highlight-color);
 }
 
 .skill-card h3 {
     color: var(--accent-color);
     margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.5px;
 }
 
 .skill-card p {
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.8;
 }
 
 /* ===== Projects Section ===== */
@@ -248,13 +331,14 @@ section h2 {
 .project-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 3.5rem;
     align-items: center;
     background-color: var(--bg-primary);
-    padding: 2rem;
-    border-radius: 10px;
+    padding: 3rem;
+    border-radius: 4px;
     box-shadow: var(--shadow);
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.4s ease;
+    border: 1px solid var(--border-color);
 }
 
 .project-card:hover {
@@ -266,80 +350,95 @@ section h2 {
     align-items: center;
     justify-content: center;
     min-height: 300px;
+    background: linear-gradient(135deg, rgba(27, 67, 50, 0.05), rgba(106, 159, 127, 0.05));
+    border-radius: 4px;
+    padding: 2rem;
 }
 
 .project-image svg {
     width: 100%;
-    max-width: 250px;
+    max-width: 280px;
     color: var(--accent-color);
 }
 
 .project-content h3 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
     color: var(--accent-color);
+    font-family: 'Georgia', serif;
+    letter-spacing: 0.5px;
 }
 
 .project-description {
     font-size: 1.05rem;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
-    line-height: 1.8;
+    line-height: 1.9;
 }
 
 .project-tags {
     display: flex;
     gap: 0.75rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     flex-wrap: wrap;
 }
 
 .tag {
-    background-color: var(--accent-color);
-    color: white;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
+    background-color: var(--accent-light);
+    color: #f5f3f0;
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
     font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.tag:hover {
+    background-color: var(--accent-color);
 }
 
 .project-link {
     display: inline-block;
     color: var(--accent-color);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
     transition: all 0.3s ease;
     border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 0.25rem;
+    padding-bottom: 0.4rem;
+    letter-spacing: 0.3px;
 }
 
 .project-link:hover {
     color: var(--accent-hover);
     border-bottom-color: var(--accent-hover);
+    padding-left: 0.5rem;
 }
 
 .project-link:focus {
     outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
+    outline-offset: 3px;
 }
 
 /* ===== Footer ===== */
 .footer {
-    background-color: var(--bg-secondary);
-    color: var(--text-secondary);
+    background-color: #1a1f18;
+    color: #dfe8d8;
     text-align: center;
-    padding: 3rem 1rem;
-    border-top: 1px solid var(--border-color);
+    padding: 4rem 1rem;
+    border-top: 3px solid var(--accent-color);
 }
 
 .footer p {
-    margin: 0.5rem 0;
+    margin: 0.8rem 0;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
 }
 
 /* ===== Animations ===== */
 @keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(-30px);
+        transform: translateY(-40px);
     }
     to {
         opacity: 1;
@@ -350,7 +449,7 @@ section h2 {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
     }
     to {
         opacity: 1;
@@ -360,25 +459,39 @@ section h2 {
 
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
+    .hero {
+        padding: 80px 1rem;
+    }
+
     .hero h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
     }
 
     section h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .project-card {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 2rem;
     }
 
     .skills-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
     section {
-        padding: 40px 1rem;
+        padding: 60px 1rem;
+    }
+
+    .skill-card {
+        padding: 1.8rem;
     }
 }
 
@@ -388,20 +501,38 @@ section h2 {
     }
 
     .hero h2 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+        letter-spacing: 0.5px;
     }
 
     .hero-subtitle {
         font-size: 1rem;
+        margin-bottom: 1.5rem;
     }
 
     .cta-button {
-        padding: 0.8rem 1.5rem;
+        padding: 0.9rem 1.8rem;
         font-size: 0.95rem;
     }
 
     .nav-container {
         flex-direction: column;
         gap: 1rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .project-content h3 {
+        font-size: 1.5rem;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    section {
+        padding: 40px 1rem;
     }
 }
