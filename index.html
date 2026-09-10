@@ -3,68 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .container {
-            text-align: center;
-            background: white;
-            padding: 60px 40px;
-            border-radius: 10px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-        }
-        
-        h1 {
-            color: #333;
-            font-size: 3em;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-in;
-        }
-        
-        p {
-            color: #666;
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-        
-        .highlight {
-            color: #667eea;
-            font-weight: bold;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <meta name="description" content="A beginner-friendly student portfolio website">
+    <title>Student Portfolio</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>👋 Hello World!</h1>
-        <p>Welcome to my <span class="highlight">portfolio</span> website hosted on GitHub Pages.</p>
-        <p>This is your starting point. Edit <code>index.html</code> to make it your own!</p>
-    </div>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation Header -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">My Portfolio</h1>
+                <!-- Theme toggle button -->
+                <button 
+                    id="themeToggle" 
+                    class="theme-btn" 
+                    aria-label="Toggle dark mode"
+                    title="Click to switch theme"
+                >
+                    🌙
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h2 id="hero-title">Welcome to My Portfolio</h2>
+                <p class="hero-subtitle">I'm a student learning web development and exploring new technologies.</p>
+                <a href="#about" class="cta-button">Learn More About Me</a>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="about" id="about" aria-labelledby="about-title">
+            <div class="container">
+                <h2 id="about-title">About Me</h2>
+                <p>
+                    I'm a passionate student interested in web development, design, and technology. 
+                    I love learning new skills and building projects that solve real-world problems. 
+                    This portfolio showcases my journey and growth as a developer.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills & Interests Section -->
+        <section class="skills" id="skills" aria-labelledby="skills-title">
+            <div class="container">
+                <h2 id="skills-title">Skills & Interests</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>HTML & CSS</h3>
+                        <p>Building semantic, accessible web pages with modern styling techniques.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>JavaScript</h3>
+                        <p>Creating interactive experiences and adding behavior to web applications.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Responsive Design</h3>
+                        <p>Designing websites that work beautifully on all devices and screen sizes.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Web Accessibility</h3>
+                        <p>Making the web inclusive for everyone by following accessibility best practices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects" id="projects" aria-labelledby="projects-title">
+            <div class="container">
+                <h2 id="projects-title">Featured Project</h2>
+                <article class="project-card">
+                    <div class="project-image">
+                        <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <!-- Simple portfolio icon -->
+                            <rect width="200" height="150" fill="currentColor" opacity="0.1"/>
+                            <rect x="20" y="30" width="160" height="90" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="60" cy="60" r="12" fill="currentColor" opacity="0.5"/>
+                            <rect x="80" y="50" width="80" height="8" fill="currentColor" opacity="0.5"/>
+                            <rect x="80" y="65" width="80" height="8" fill="currentColor" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <div class="project-content">
+                        <h3>Student Portfolio Website</h3>
+                        <p class="project-description">
+                            A responsive, accessible portfolio website built with semantic HTML, CSS, and vanilla JavaScript. 
+                            Features a light/dark theme toggle and demonstrates modern web development best practices.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <a href="#" class="project-link" aria-label="View Student Portfolio Website project">View Project →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2024 My Student Portfolio. All rights reserved.</p>
+            <p>Built with HTML, CSS, and JavaScript.</p>
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
